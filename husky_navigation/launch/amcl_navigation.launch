@@ -29,6 +29,6 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
   <include file="$(find husky_navigation)/launch/amcl.launch" />
 
   <!--- Run Move Base -->
-  <include file="$(find husky_navigation)/launch/map_based_navigation.launch" />
+  <include file="$(find husky_navigation)/launch/move_base.launch" />
 
 </launch>
