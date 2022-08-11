@@ -59,12 +59,6 @@ ROS Packages for Husky Robot
     $ roslaunch husky_navigation gmapping.launch
     $ roslaunch husky_control teleop_keyboard.launch
     ```
-    OR
-    ```bash
-    $ roslaunch husky_gazebo husky_playpen.launch
-    $ roslaunch husky_viz view_robot.launch
-    $ roslaunch husky_navigation gmapping_navigation.launch
-    ```
     To save generated map to current working directory, run:
     ```bash
     $ rosrun map_server map_saver -f <filename>
@@ -76,12 +70,6 @@ ROS Packages for Husky Robot
     $ roslaunch husky_viz view_robot.launch
     $ roslaunch husky_navigation amcl.launch
     $ roslaunch husky_control teleop_keyboard.launch
-    ```
-    OR
-    ```bash
-    $ roslaunch husky_gazebo husky_playpen.launch
-    $ roslaunch husky_viz view_robot.launch
-    $ roslaunch husky_navigation amcl_navigation.launch
     ```
 
 5. Map-Based Navigation:
