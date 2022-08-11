@@ -21,7 +21,7 @@ ROS Packages for Husky Robot
   ```bash
   $ mkdir -p catkin_ws/src
   ```
-2. Change directory to the source space (`src`) your Catkin workspace
+2. Change directory to the source space (`src`) of your Catkin workspace
   ```bash
   $ cd catkin_ws/src
   ```
