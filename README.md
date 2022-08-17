@@ -79,3 +79,12 @@ ROS Packages for Husky Robot
     $ roslaunch husky_viz view_robot.launch
     $ roslaunch husky_navigation map_based_navigation.launch
     ```
+
+## Video Tutorials:
+
+1. [Installation](https://youtu.be/kXD9GfkbkHk)
+2. [Teleoperation](https://youtu.be/B-4VfZrvVJo)
+3. [Map-Less Navigation](https://youtu.be/3sVrWRfWrEY)
+4. [SLAM](https://youtu.be/-_bC1_xs9TY)
+5. [Map-Based Localization](https://youtu.be/RrX4_UMeTQ8)
+6. [Map-Based Navigation](https://youtu.be/F5OiuIkqxcc)
