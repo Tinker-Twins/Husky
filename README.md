@@ -1,5 +1,7 @@
 # Husky
-ROS Packages for Husky Robot
+### ROS Packages for Husky Robot
+
+![](https://github.com/Tinker-Twins/Husky/blob/main/Husky.png)
 
 ## Dependencies
 
