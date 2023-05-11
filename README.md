@@ -8,6 +8,7 @@
  - fath_pivot_mount_description: `$ sudo apt-get install ros-noetic-fath-pivot-mount-description`
  - flir_camera_description: `$ sudo apt-get install ros-noetic-flir-camera-description`
  - velodyne_description: `$ sudo apt-get install ros-noetic-velodyne-description`
+ - realsense2_description: `$ sudo apt install ros-noetic-realsense2-description`
  - LMS1xx: `$ sudo apt-get install ros-noetic-lms1xx`
  - robot_localization: `$ sudo apt-get install ros-noetic-robot-localization`
  - interactive_marker_twist_server: `$ sudo apt-get install ros-noetic-interactive-marker-twist-server`
