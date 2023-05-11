@@ -76,8 +76,8 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
   <xacro:arg name="laser_3d_secondary_xyz"        default="$(optenv HUSKY_LASER_3D_SECONDARY_XYZ 0 0 0)" />
   <xacro:arg name="laser_3d_secondary_rpy"        default="$(optenv HUSKY_LASER_3D_SECONDARY_RPY 0 0 -3.14159)" />
 
-  <!-- Realsense Camera Primary and Secondary -->
-  <xacro:arg name="realsense_enabled"             default="$(optenv HUSKY_REALSENSE_ENABLED 0)" />
+  <!-- RealSense Camera Primary and Secondary -->
+  <xacro:arg name="realsense_enabled"             default="$(optenv HUSKY_REALSENSE_ENABLED 1)" />
   <xacro:arg name="realsense_topic"               default="$(optenv HUSKY_REALSENSE_TOPIC realsense)" />
   <xacro:arg name="realsense_prefix"              default="$(optenv HUSKY_REALSENSE_PREFIX camera)" />
   <xacro:arg name="realsense_parent"              default="$(optenv HUSKY_REALSENSE_PARENT top_plate_link)" />
