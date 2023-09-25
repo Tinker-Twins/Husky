@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+<xacro:macro name="husky_firstlab" params="parent *origin">
+
+  <xacro:include filename="$(find husky_description)/urdf/husky.urdf.xacro" />
+  <xacro:include filename="$(find husky_firstlab_description)/urdf/multi_mount.urdf.xacro" />
+  <xacro:include filename="$(find husky_firstlab_description)/urdf/rear_structure.urdf.xacro" />
+
+  <!-- base_link  -->
+  <joint name="parent_to_base_link" type="fixed">
+    <parent link="${parent}"/>
+    <child link="base_link" />
+    <xacro:insert_block name="origin" />
+  </joint>
+
+  <!-- Add multi mount  -->
+  <xacro:multi_mount parent="top_plate_front_link">
+    <origin xyz="0.09 0.0 0.045" rpy="0 0 0"/>
+  </xacro:multi_mount>
+
+  <!-- Add ground block -->
+  <xacro:ground_block parent="top_plate_front_link">
+    <origin xyz="-0.036 0.0 0.0" rpy="0 0 0"/>
+  </xacro:ground_block>
+
+  <!-- Add rear structure  --> 
+  <xacro:rear_structure parent="top_plate_rear_link">
+    <origin xyz="0.0225 -0.283 0.0" rpy="0 0 0"/>
+  </xacro:rear_structure>
+
+  <!-- Add rear structure top frame --> 
+  <xacro:rear_structure_top parent="rear_structure_link">
+    <origin xyz="0.0 0.285 0.84" rpy="0 0 0"/>
+  </xacro:rear_structure_top>
+
+  <!-- Add antennas  -->
+  <xacro:ublox_rtk parent="rear_structure_top_link" side="right">
+    <origin xyz="-0.022 -0.214 0.0" rpy="0 0 0"/>
+  </xacro:ublox_rtk>
+
+  <xacro:ublox_rtk parent="rear_structure_top_link" side="left">
+    <origin xyz="-0.022 0.214 0.0" rpy="0 0 0"/>
+  </xacro:ublox_rtk>
+
+</xacro:macro>
+
+</robot>

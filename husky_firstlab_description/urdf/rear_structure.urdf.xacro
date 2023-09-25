@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+    <!-- Add rear structure -->
+  <xacro:macro name="rear_structure" params="parent *origin">
+    <link name="rear_structure_link">
+      <visual>
+        <geometry>
+          <mesh filename="package://husky_firstlab_description/meshes/aluminium_profile.dae" />
+        </geometry>
+      </visual>
+
+      <collision>
+        <geometry>
+          <mesh filename="package://husky_firstlab_description/meshes/aluminium_profile.dae"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="rear_structure_joint" type="fixed">
+      <parent link="${parent}"/> <!-- top_plate_rear_link -->
+      <child link="rear_structure_link"/>
+      <xacro:insert_block name="origin"/>
+    </joint>
+  </xacro:macro>
+
+  <!-- Add rear structure top frame-->
+  <xacro:macro name="rear_structure_top" params="parent *origin">
+    <link name="rear_structure_top_link" />
+
+    <joint name="rear_structure_top_joint" type="fixed">
+      <parent link="${parent}"/> <!-- rear_structure_link -->
+      <child link="rear_structure_top_link"/>
+      <xacro:insert_block name="origin"/>
+    </joint>
+  </xacro:macro>
+
+  <!-- Add antennas - UBLOX_ZED_F9P_GPS_RTK-->
+  <xacro:macro name="ublox_rtk" params="parent side *origin">
+    <link name="ublox_rtk_${side}_link">
+      <visual>
+        <geometry>
+          <mesh filename="package://husky_firstlab_description/meshes/ublox_antenna.dae" />
+        </geometry>
+      </visual>
+
+      <collision>
+        <geometry>
+          <mesh filename="package://husky_firstlab_description/meshes/ublox_antenna.dae"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="ublox_rtk_${side}joint" type="fixed">
+      <parent link="${parent}"/> <!-- rear_structure_top_link -->
+      <child link="ublox_rtk_${side}_link"/>
+      <xacro:insert_block name="origin"/>
+    </joint>
+  </xacro:macro>
+</robot>

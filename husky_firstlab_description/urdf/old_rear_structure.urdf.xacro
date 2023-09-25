@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="rear_structure" params="">
+    <!-- Boxe_1 -->
+    <joint name="Boxe_1_joint" type="fixed">
+      <parent link="base_link" />
+      <child link="Boxe_1_frame" />
+      <origin xyz="-0.28 0 1.155" rpy="0 0 0" />
+    </joint>
+    
+    <link name="Boxe_1_frame">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.04 0.52 0.01" />
+        </geometry>
+        <material name="grey">
+          <color rgba="0.5725490196078431 0.5843137254901961 0.5686274509803921 1.0" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.04 0.52 0.01" />
+        </geometry>
+      </collision>
+    </link>
+    
+    <!-- Boxe_2 -->
+    <joint name="Boxe_2_joint" type="fixed">
+      <parent link="base_link" />
+      <child link="Boxe_2_frame" />
+      <origin xyz="-0.28 0.26 0.703" rpy="0 0 0" />
+    </joint>
+    
+    <link name="Boxe_2_frame">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.04 0.01 0.904" />
+        </geometry>
+        <material name="grey">
+          <color rgba="0.8 0.8 0.8 1.0" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.04 0.01 0.904" />
+        </geometry>
+      </collision>
+    </link>
+    
+    <!-- Boxe_3 -->
+    <joint name="Boxe_3_joint" type="fixed">
+      <parent link="base_link" />
+      <child link="Boxe_3_frame" />
+      <origin xyz="-0.28 -0.26 0.703" rpy="0 0 0" />
+    </joint>
+    
+    <link name="Boxe_3_frame">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.04 0.01 0.904" />
+        </geometry>
+        <material name="grey">
+          <color rgba="0.8 0.8 0.8 1.0" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.04 0.01 0.904" />
+        </geometry>
+      </collision>
+    </link>
+    
+    <!-- RTK_left -->
+    <joint name="rtk_left_joint" type="fixed">
+      <parent link="base_link" />
+      <child link="rtk_left" />
+      <origin xyz="-0.28 0.21 1.16" rpy="0 0 0" />
+    </joint>
+    
+    <link name="rtk_left">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <cylinder radius="0.01" length="0.01" />
+        </geometry>
+        <material name="black">
+          <color rgba="0 0 0 1.0" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <cylinder radius="0.01" length="0.01" />
+        </geometry>
+      </collision>
+    </link>
+    
+    <!-- RTK_right -->
+    <joint name="rtk_right_joint" type="fixed">
+      <parent link="base_link" />
+      <child link="rtk_right" />
+      <origin xyz="-0.28 -0.21 1.16" rpy="0 0 0" />
+    </joint>
+    
+    <link name="rtk_right">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <cylinder radius="0.01" length="0.01" />
+        </geometry>
+        <material name="black">
+          <color rgba="0 0 0 1.0" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <cylinder radius="0.01" length="0.01" />
+        </geometry>
+      </collision>
+    </link>
+  </xacro:macro>
+</robot>

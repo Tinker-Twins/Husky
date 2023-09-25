@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<robot name="husky_firstlab" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="$(find husky_firstlab_description)/urdf/husky_firstlab.urdf.xacro" />
+    
+  <link name="base"/>
+  <xacro:husky_firstlab parent="base">
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+  </xacro:husky_firstlab>
+</robot>

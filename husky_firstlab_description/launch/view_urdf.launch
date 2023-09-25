@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="rviz"             default="true" />
+
+  <include file="$(find husky_firstlab_description)/launch/load.launch">
+    <arg name="robot_state_publisher" value="true" />
+  </include>
+
+  <node name="husky_firstlab_joint_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+
+
+  <node if="$(arg rviz)" name="rviz" pkg="rviz" type="rviz" args="-d $(find husky_firstlab_description)/config/rviz/display.rviz" />
+</launch>
+

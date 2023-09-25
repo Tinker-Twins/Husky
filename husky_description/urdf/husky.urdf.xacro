@@ -180,20 +180,53 @@
 </joint>
 
 <link name="metal_platform_frame">
-<visual>
-<origin xyz="0.1897 -0.55 -0.267" rpy="0 0 1.57"/>
-<geometry>
-  <mesh filename="package://husky_description/meshes/metal_platform.dae" scale="0.001 0.001 0.001" />
-</geometry>
-</visual>
+  <visual>
+  <origin xyz="0.1897 -0.55 -0.267" rpy="0 0 1.57"/>
+    <geometry>
+      <mesh filename="package://husky_description/meshes/metal_platform.dae" scale="0.001 0.001 0.001" />
+    </geometry>
+  </visual>
 
-<collision>
-<origin xyz="0.1897 -0.55 -0.267" rpy="0 0 1.57"/>
-<geometry>
-  <mesh filename="package://husky_description/meshes/metal_platform.STL" scale="0.001 0.001 0.001"/>
-</geometry>
-</collision>
+  <collision>
+  <origin xyz="0.1897 -0.55 -0.267" rpy="0 0 1.57"/>
+    <geometry>
+      <mesh filename="package://husky_description/meshes/metal_platform.STL" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
 </link>
+
+
+
+<!-- Mount lower -->
+ 
+<joint name="mount_lower_joint" type="fixed">
+  <parent link="top_plate_front_link"/>
+  <child link="mount_lower_frame"/>
+  <origin xyz="0.0 0.0 0.18" rpy="0 0 0"/>
+</joint>
+
+<link name="mount_lower_frame">
+  <visual>
+  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://husky_description/meshes/base.dae"/>
+    </geometry>
+  </visual>
+
+  <collision>
+  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://husky_description/meshes/base.dae"/>
+    </geometry>
+  </collision>
+</link>
+
+
+
+
+
+
+
 
 <!-- Boxe_1 --> 
  

@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Add multi mount  -->
+  <xacro:macro name="multi_mount" params="parent *origin">
+    <link name="multi_mount_link">
+      <visual>
+        <geometry>
+          <mesh filename="package://husky_firstlab_description/meshes/multi_mount.dae" />
+        </geometry>
+      </visual>
+
+      <collision>
+        <geometry>
+          <mesh filename="package://husky_firstlab_description/meshes/multi_mount_collision.dae"/>
+        </geometry>
+      </collision>
+      <inertial><!-- Aluminium-->
+        <mass value="6.78929095" /> 
+        <origin xyz="-156.10308 0.07537 46.29651" rpy="0 0 0"/>
+        <inertia ixx="70950.08055"  ixy="14.7866"  ixz="3988.478" iyy="50223.02552" iyz="-16.54792" izz="93612.37676" />
+      </inertial>
+    </link>
+
+    <joint name="multi_mount_joint" type="fixed">
+      <parent link="${parent}"/> <!-- top_plate_front_link -->
+      <child link="multi_mount_link"/>
+      <xacro:insert_block name="origin"/>
+    </joint>
+
+    <!-- Add the multi mount plates -->
+    <xacro:multi_mount_plate side="top">
+      <origin xyz="-185.0e-3 0.0 180.0e-3" rpy="0.0 0.0 0.0"/>
+    </xacro:multi_mount_plate>
+
+    <xacro:multi_mount_plate side="front">
+      <origin xyz="-41.65e-3 0 120.357e-3" rpy="0.0 ${pi * 46.332 / 180.0} 0.0"/>
+    </xacro:multi_mount_plate>
+    
+    <xacro:multi_mount_plate side="left">
+      <origin xyz="-185.0e-3 142.636e-3 121.105e-3" rpy="0.0 ${pi * 46.332 / 180.0} ${pi/2}"/>
+    </xacro:multi_mount_plate>
+
+    <xacro:multi_mount_plate side="right">
+      <origin xyz="-185.0e-3 -142.636e-3 121.105e-3" rpy="0.0 ${pi * 46.332 / 180.0} ${-pi/2}"/>
+    </xacro:multi_mount_plate>
+  </xacro:macro>
+
+  <!-- Add multi mount plates  -->  
+  <xacro:macro name="multi_mount_plate" params="side *origin">
+    <link name="multi_mount_${side}_plate">
+      <visual>
+        <geometry>
+          <mesh filename="package://husky_firstlab_description/meshes/multi_mount_plate.dae" />
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name="multi_mount_link_to_multi_mount_${side}_plate" type="fixed">
+      <parent link="multi_mount_link"/>
+      <child link="multi_mount_${side}_plate"/>
+      <xacro:insert_block name="origin"/>
+    </joint>
+  </xacro:macro>
+
+  <!-- Add ground block that multi mount is on it -->
+  <xacro:macro name="ground_block" params="parent *origin">
+    <link name="ground_block_link">
+      <visual>
+        <geometry>
+          <mesh filename="package://husky_firstlab_description/meshes/ground_block.dae" />
+        </geometry>
+      </visual>
+
+      <collision>
+        <geometry>
+          <mesh filename="package://husky_firstlab_description/meshes/ground_block.dae"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="ground_block_joint" type="fixed">
+      <parent link="${parent}"/> <!-- top_plate_front_link -->
+      <child link="ground_block_link"/>
+      <xacro:insert_block name="origin"/>
+    </joint>
+  </xacro:macro>
+</robot>

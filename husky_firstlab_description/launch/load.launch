@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+  <arg name="description_file" default="$(find husky_firstlab_description)/urdf/husky_firstlab_standalone.urdf.xacro" />
+  <arg name="robot_state_publisher" default="false" />
+
+  <!-- Load robot description into the Parameter Server -->
+  <param name="robot_description" command="xacro $(arg description_file) husky_front_bumper_extend:=true husky_rear_bumper_extend:=true" />
+
+  <!-- Launch robot_state_publisher if required -->
+  <node if="$(arg robot_state_publisher)" name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+</launch>
+
